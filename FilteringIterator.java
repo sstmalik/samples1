@@ -4,33 +4,31 @@ package codingTest;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-
 /**
  * 
  * 
- * Coding Test program for Pimco.
-This iterator decorates the underlying iterator, only allowing through
- those elements that match the specified {@link Predicate Predicate}.
-  @author Malik
-*/
+ * Coding Test program for Pimco. This iterator decorates the underlying
+ * iterator, only allowing through those elements that match the specified
+ * {@link Predicate Predicate}.
+ * 
+ * @author Malik
+ */
 public class FilteringIterator<E> implements Iterator<E> {
 
-	//underlying iterator instance. 
+	// underlying iterator instance.
 	private Iterator<? extends E> iterator;
-	//predicate
+	// predicate
 	private IObjectTest<E> filterTester;
-  
 
-	// The next object in the iteration 
+	// The next object in the iteration
 	private E nextObject;
-	//Whether the next object has been calculated yet 
+	// Whether the next object has been calculated yet
 	private boolean nextObjectSet = false;
 
 	/**
 	 * @param iterator
 	 * @param filter
-	 * Constructor 
-	 * Takes an underlying Iterator and the filter tester
+	 *            Constructor Takes an underlying Iterator and the filter tester
 	 */
 	/**
 	 * @param iterator
@@ -44,9 +42,10 @@ public class FilteringIterator<E> implements Iterator<E> {
 	}
 
 	/**
-	 *  Returns true if the underlying iterator contains an object that
-     * matches the predicate.
-     * @return if another element satisfying predicate exists
+	 * Returns true if the underlying iterator contains an object that matches
+	 * the predicate.
+	 * 
+	 * @return if another element satisfying predicate exists
 	 */
 	@Override
 	public boolean hasNext() {
@@ -54,9 +53,10 @@ public class FilteringIterator<E> implements Iterator<E> {
 	}
 
 	/**
-	 * return the next object which matches the given predicate
-     * throws NullPointerException if either the iterator or predicate are null
-     * @return next item in the filtering iterator that satisfies predicate
+	 * return the next object which matches the given predicate throws
+	 * NullPointerException if either the iterator or predicate are null
+	 * 
+	 * @return next item in the filtering iterator that satisfies predicate
 	 */
 	@Override
 	public E next() {
@@ -69,11 +69,11 @@ public class FilteringIterator<E> implements Iterator<E> {
 		return nextObject;
 	}
 
-	
 	/**
 	 * Sets nextObject to the next object that matches the test condition . If
 	 * there are no objects tha match test cocndition then return false else
 	 * return true.
+	 * 
 	 * @return next predicate in iterator
 	 */
 	private boolean setNextObject() {
@@ -94,7 +94,8 @@ public class FilteringIterator<E> implements Iterator<E> {
 	 * next() was called, but not after hasNext(), because the hasNext() call
 	 * changes the base iterator.
 	 * 
-	 * @throws IllegalStateException if hasNext() has already been called.
+	 * @throws IllegalStateException
+	 *             if hasNext() has already been called.
 	 */
 	@Override
 	public void remove() {
