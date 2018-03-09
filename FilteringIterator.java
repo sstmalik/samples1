@@ -9,7 +9,6 @@ import java.util.NoSuchElementException;
  * 
  * Coding Test program for Pimco. This iterator decorates the underlying
  * iterator, only allowing through those elements that match the specified
- * {@link Predicate Predicate}.
  * 
  * @author Malik
  */
