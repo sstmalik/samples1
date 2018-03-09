@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+//has code for both generic and interger stack
 public class StackImpl {
 
 	private int[] underlyingArray = new int[10];
