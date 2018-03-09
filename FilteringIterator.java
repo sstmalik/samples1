@@ -1,7 +1,3 @@
-/**
- * @author Malik
- * Test program for Pimco. 
- */
 
 package codingTest;
 
@@ -10,8 +6,12 @@ import java.util.NoSuchElementException;
 
 
 /**
+ * 
+ * 
+ * Coding Test program for Pimco.
 This iterator decorates the underlying iterator, only allowing through
  those elements that match the specified {@link Predicate Predicate}.
+  @author Malik
 */
 public class FilteringIterator<E> implements Iterator<E> {
 
@@ -26,6 +26,16 @@ public class FilteringIterator<E> implements Iterator<E> {
 	//Whether the next object has been calculated yet 
 	private boolean nextObjectSet = false;
 
+	/**
+	 * @param iterator
+	 * @param filter
+	 * Constructor 
+	 * Takes an underlying Iterator and the filter tester
+	 */
+	/**
+	 * @param iterator
+	 * @param filter
+	 */
 	public FilteringIterator(Iterator<E> iterator, IObjectTest<E> filter) {
 		super();
 		this.iterator = iterator;
@@ -36,16 +46,17 @@ public class FilteringIterator<E> implements Iterator<E> {
 	/**
 	 *  Returns true if the underlying iterator contains an object that
      * matches the predicate.
+     * @return if another element satisfying predicate exists
 	 */
 	@Override
 	public boolean hasNext() {
-		// TODO Auto-generated method stub
 		return nextObjectSet || setNextObject();
 	}
 
 	/**
 	 * return the next object which matches the given predicate
      * throws NullPointerException if either the iterator or predicate are null
+     * @return next item in the filtering iterator that satisfies predicate
 	 */
 	@Override
 	public E next() {
@@ -63,6 +74,7 @@ public class FilteringIterator<E> implements Iterator<E> {
 	 * Sets nextObject to the next object that matches the test condition . If
 	 * there are no objects tha match test cocndition then return false else
 	 * return true.
+	 * @return next predicate in iterator
 	 */
 	private boolean setNextObject() {
 		while (iterator.hasNext()) {
